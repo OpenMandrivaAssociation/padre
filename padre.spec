@@ -1,6 +1,6 @@
 %define upstream_name    Padre
 %define appli_name       padre
-%define upstream_version 0.41
+%define upstream_version 0.42
 
 Name:       %{appli_name}
 Version:    %perl_convert_version %{upstream_version}
@@ -54,8 +54,10 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
 Obsoletes: perl-Padre-Plugin-Encode <= 0.1.3
 Provides:  perl-Padre-Plugin-Encode = %{version}
+
 Obsoletes: perl-Wx-Perl-Dialog <= 0.04
 Provides:  perl-Wx-Perl-Dialog = %{version}
+
 Obsoletes: perl-Padre <= 0.400.0
 Provides:  perl-Padre = %{version}
 
@@ -63,14 +65,14 @@ Provides:  perl-Padre = %{version}
 Padre - Perl Application Development and Refactoring Environment
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
 %{__make}
 
 %check
-#%{__make} test
+%{__make} test
 
 %install
 rm -rf %{buildroot}
@@ -85,5 +87,3 @@ rm -rf %buildroot
 %{_bindir}/padre
 %{_mandir}/man3/*
 %perl_vendorlib/*
-
-
