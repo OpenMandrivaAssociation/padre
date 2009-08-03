@@ -12,11 +12,16 @@ Summary:    Perl Application Development and Refactoring Environment
 Url:        http://search.cpan.org/dist/%{upstream_name}
 Source0:    http://search.cpan.org/CPAN/authors/id/S/SZ/SZABGAB/%{upstream_name}-%{upstream_version}.tar.gz
 
+BuildRequires: perl(Class::XSAccessor::Array)
 BuildRequires: perl(Locale::Msgfmt) 
 BuildRequires: perl(Module::Build) 
 BuildRequires: perl(Module::Install) 
 BuildRequires: perl(File::Copy::Recursive)
+BuildRequires: perl(File::Find::Rule)
+BuildRequires: perl(File::HomeDir)
 BuildRequires: perl(File::Which)
+BuildRequires: perl(ORLite)
+BuildRequires: perl(Params::Util)
 BuildRequires: perl(Test::Exception)
 BuildRequires: perl(Test::Most)
 BuildRequires: perl(Test::NeedsDisplay)
