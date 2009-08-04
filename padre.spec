@@ -12,7 +12,9 @@ Summary:    Perl Application Development and Refactoring Environment
 Url:        http://search.cpan.org/dist/%{upstream_name}
 Source0:    http://search.cpan.org/CPAN/authors/id/S/SZ/SZABGAB/%{upstream_name}-%{upstream_version}.tar.gz
 
+BuildRequires: perl(App::Ack)
 BuildRequires: perl(Capture::Tiny)
+BuildRequires: perl(Class::Adapter)
 BuildRequires: perl(Class::Unload)
 BuildRequires: perl(Class::XSAccessor::Array)
 BuildRequires: perl(Cwd)                       >= 3.270.100
@@ -28,6 +30,7 @@ BuildRequires: perl(File::ShareDir)
 BuildRequires: perl(File::ShareDir::PAR)
 BuildRequires: perl(File::Spec)                >= 3.270.100
 BuildRequires: perl(File::Which)
+BuildRequires: perl(File::pushd)
 BuildRequires: perl(HTML::Entities)
 BuildRequires: perl(IO::Scalar)
 BuildRequires: perl(IO::String)
@@ -40,6 +43,7 @@ BuildRequires: perl(PPI)
 BuildRequires: perl(PPIx::EditorTools)
 BuildRequires: perl(Params::Util)
 BuildRequires: perl(Parse::ErrorString::Perl)
+BuildRequires: perl(Parse::ExuberantCTags)
 BuildRequires: perl(Pod::Abstract)
 BuildRequires: perl(Pod::POM)
 BuildRequires: perl(Pod::Simple)
@@ -52,10 +56,12 @@ BuildRequires: perl(Test::Script)
 BuildRequires: perl(Test::NeedsDisplay)
 BuildRequires: perl(Test::NoWarnings)
 BuildRequires: perl(Text::FindIndent)
-BuildRequires: perl(Thread::Queue)
+BuildRequires: perl(Thread::Queue)             >= 2.110.0
 BuildRequires: perl(URI)
 BuildRequires: perl(Wx)
 BuildRequires: perl(Wx::Perl::ProcessStream)
+BuildRequires: perl(threads)                   >= 1.710.0
+BuildRequires: perl(threads::shared)           >= 1.260.0
 Requires:      gettext
 Requires:      perl(Class::Adapter::Builder)
 Requires:      perl(Class::Accessor)
