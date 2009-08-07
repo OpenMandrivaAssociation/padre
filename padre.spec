@@ -4,7 +4,7 @@
 
 Name:       %{appli_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Release:    %mkrel 3
 
 License:    GPL+ or Artistic
 Group:      Development/Perl
@@ -86,7 +86,7 @@ Requires:      perl(Parse::ExuberantCTags)
 Requires:      perl-PathTools
 Requires:      perl(Probe::Perl)
 Requires:      perl(Text::FindIndent)
-Requires:      perl(Thread::Queue)
+Requires:      perl(Thread::Queue)             >= 2.110.0
 Requires:      perl(Wx::Perl::ProcessStream)
 Requires:      perl(threads)
 Requires:      perl(threads::shared)
