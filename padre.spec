@@ -12,6 +12,7 @@ Summary:    Perl Application Development and Refactoring Environment
 Url:        http://search.cpan.org/dist/%{upstream_name}
 Source0:    http://search.cpan.org/CPAN/authors/id/S/SZ/SZABGAB/%{upstream_name}-%{upstream_version}.tar.gz
 
+
 BuildRequires: perl(App::Ack)
 BuildRequires: perl(Capture::Tiny)
 BuildRequires: perl(Class::Adapter)
@@ -20,27 +21,27 @@ BuildRequires: perl(Class::XSAccessor::Array)
 BuildRequires: perl(Cwd)                       >= 3.270.100
 BuildRequires: perl(Devel::Dumpvar)
 BuildRequires: perl(Encode)                    >= 2.260.0
-BuildRequires: perl(Locale::Msgfmt) 
-BuildRequires: perl(Module::Build) 
-BuildRequires: perl(Module::Install) 
+BuildRequires: perl(ExtUtils::Manifest)        >= 1.560.0
 BuildRequires: perl(File::Copy::Recursive)
 BuildRequires: perl(File::Find::Rule)
 BuildRequires: perl(File::HomeDir)
+BuildRequires: perl(File::pushd)
 BuildRequires: perl(File::ShareDir)
 BuildRequires: perl(File::ShareDir::PAR)
 BuildRequires: perl(File::Spec)                >= 3.270.100
 BuildRequires: perl(File::Which)
-BuildRequires: perl(File::pushd)
 BuildRequires: perl(HTML::Entities)
 BuildRequires: perl(IO::Scalar)
 BuildRequires: perl(IO::String)
+BuildRequires: perl(Locale::Msgfmt) 
+BuildRequires: perl(Module::Build) 
+BuildRequires: perl(Module::CoreList)
+BuildRequires: perl(Module::Install) 
 BuildRequires: perl(Module::Refresh)
 BuildRequires: perl(Module::Starter)
 BuildRequires: perl(ORLite)
 BuildRequires: perl(ORLite::Migrate)
 BuildRequires: perl(PAR)
-BuildRequires: perl(PPI)
-BuildRequires: perl(PPIx::EditorTools)
 BuildRequires: perl(Params::Util)
 BuildRequires: perl(Parse::ErrorString::Perl)
 BuildRequires: perl(Parse::ExuberantCTags)
@@ -48,20 +49,27 @@ BuildRequires: perl(Pod::Abstract)
 BuildRequires: perl(Pod::POM)
 BuildRequires: perl(Pod::Simple)
 BuildRequires: perl(Pod::Simple::XHTML)
+BuildRequires: perl(PPI)
+BuildRequires: perl(PPIx::EditorTools)
 BuildRequires: perl(Probe::Perl)
 BuildRequires: perl(Test::Exception)
 BuildRequires: perl(Test::More)                >= 0.880.0
 BuildRequires: perl(Test::Most)
-BuildRequires: perl(Test::Script)
 BuildRequires: perl(Test::NeedsDisplay)
 BuildRequires: perl(Test::NoWarnings)
+BuildRequires: perl(Test::Script)
 BuildRequires: perl(Text::FindIndent)
 BuildRequires: perl(Thread::Queue)             >= 2.110.0
+BuildRequires: perl(threads)                   >= 1.710.0
+BuildRequires: perl(threads::shared)           >= 1.260.0
 BuildRequires: perl(URI)
 BuildRequires: perl(Wx)
 BuildRequires: perl(Wx::Perl::ProcessStream)
-BuildRequires: perl(threads)                   >= 1.710.0
-BuildRequires: perl(threads::shared)           >= 1.260.0
+BuildRequires: x11-server-xvfb
+
+BuildArch: noarch
+BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
+
 Requires:      gettext
 Requires:      perl(Class::Adapter::Builder)
 Requires:      perl(Class::Accessor)
@@ -90,8 +98,6 @@ Requires:      perl(Thread::Queue)             >= 2.110.0
 Requires:      perl(Wx::Perl::ProcessStream)
 Requires:      perl(threads)
 Requires:      perl(threads::shared)
-BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
 Obsoletes: perl-Padre-Plugin-Encode <= 0.1.3
 Provides:  perl-Padre-Plugin-Encode = %{version}
@@ -118,14 +124,14 @@ Suggests: perl(Padre::Plugin::ViewInBrowser)
 Padre - Perl Application Development and Refactoring Environment
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+xvfb-run %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
 %{__make}
 
 %check
-%{__make} test
+xvfb-run %{__make} test
 
 %install
 rm -rf %{buildroot}
