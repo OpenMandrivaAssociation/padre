@@ -131,7 +131,7 @@ xvfb-run %{__perl} Makefile.PL INSTALLDIRS=vendor
 %{__make}
 
 %check
-xvfb-run %{__make} test
+DISPLAY= %{__make} test
 
 %install
 rm -rf %{buildroot}
