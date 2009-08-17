@@ -1,10 +1,10 @@
 %define upstream_name    Padre
 %define appli_name       padre
-%define upstream_version 0.42
+%define upstream_version 0.43
 
 Name:       %{appli_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 3
+Release:    %mkrel 1
 
 License:    GPL+ or Artistic
 Group:      Development/Perl
@@ -101,6 +101,18 @@ Provides:  perl-Wx-Perl-Dialog = %{version}
 
 Obsoletes: perl-Padre <= 0.400.0
 Provides:  perl-Padre = %{version}
+
+Suggests: perl(Padre::Plugin::Autoformat)
+Suggests: perl(Padre::Plugin::Catalyst)
+Suggests: perl(Padre::Plugin::DataWalker)
+Suggests: perl(Padre::Plugin::Ecliptic)
+Suggests: perl(Padre::Plugin::Nopaste)
+Suggests: perl(Padre::Plugin::PAR)
+Suggests: perl(Padre::Plugin::Perl6)
+Suggests: perl(Padre::Plugin::PerlCritic)
+Suggests: perl(Padre::Plugin::PerlTidy)
+Suggests: perl(Padre::Plugin::ViewInBrowser)
+
 
 %description
 Padre - Perl Application Development and Refactoring Environment
