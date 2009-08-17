@@ -127,7 +127,7 @@ Padre - Perl Application Development and Refactoring Environment
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-%{__perl} Makefile.PL INSTALLDIRS=vendor
+xfvb-run %{__perl} Makefile.PL INSTALLDIRS=vendor
 %{__make}
 
 %check
