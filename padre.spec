@@ -124,7 +124,7 @@ Suggests: perl(Padre::Plugin::ViewInBrowser)
 Padre - Perl Application Development and Refactoring Environment
 
 %prep
-xvfb-run %setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
