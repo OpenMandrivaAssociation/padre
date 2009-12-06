@@ -13,6 +13,7 @@ Url:        http://search.cpan.org/dist/%{upstream_name}
 Source0:    http://search.cpan.org/CPAN/authors/id/S/SZ/SZABGAB/%{upstream_name}-%{upstream_version}.tar.gz
 
 
+BuildRequires: perl(Alien::wxWidgets)
 BuildRequires: perl(App::Ack)
 BuildRequires: perl(Capture::Tiny)
 BuildRequires: perl(Class::Adapter)
@@ -20,6 +21,7 @@ BuildRequires: perl(Class::Unload)
 BuildRequires: perl(Class::XSAccessor::Array)
 BuildRequires: perl(Cwd)                       >= 3.270.100
 BuildRequires: perl(Devel::Dumpvar)
+BuildRequires: perl(Devel::Refactor)
 BuildRequires: perl(Encode)                    >= 2.260.0
 BuildRequires: perl(ExtUtils::Manifest)        >= 1.560.0
 BuildRequires: perl(File::Copy::Recursive)
@@ -30,6 +32,7 @@ BuildRequires: perl(File::ShareDir)
 BuildRequires: perl(File::ShareDir::PAR)
 BuildRequires: perl(File::Spec)                >= 3.270.100
 BuildRequires: perl(File::Which)
+BuildRequires: perl(Format::Human::Bytes)
 BuildRequires: perl(HTML::Entities)
 BuildRequires: perl(IO::Scalar)
 BuildRequires: perl(IO::String)
