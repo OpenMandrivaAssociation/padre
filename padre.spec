@@ -12,7 +12,6 @@ Summary:    Perl Application Development and Refactoring Environment
 Url:        http://search.cpan.org/dist/%{upstream_name}
 Source0:    http://search.cpan.org/CPAN/authors/id/S/SZ/SZABGAB/%{upstream_name}-%{upstream_version}.tar.gz
 
-
 BuildRequires: perl(Alien::wxWidgets)
 BuildRequires: perl(App::Ack)
 BuildRequires: perl(Capture::Tiny)
@@ -69,7 +68,6 @@ BuildRequires: perl(threads::shared)           >= 1.260.0
 BuildRequires: perl(URI)
 BuildRequires: perl(Wx)
 BuildRequires: perl(Wx::Perl::ProcessStream)
-BuildRequires: x11-server-xvfb
 
 BuildArch: noarch
 BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
@@ -131,11 +129,11 @@ Padre - Perl Application Development and Refactoring Environment
 %setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
-xvfb-run %{__perl} Makefile.PL INSTALLDIRS=vendor
-%{__make}
+DISPLAY= %{__perl} Makefile.PL INSTALLDIRS=vendor
+%make
 
 %check
-DISPLAY= %{__make} test
+DISPLAY= %make test
 
 %install
 rm -rf %{buildroot}
