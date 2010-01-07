@@ -114,14 +114,21 @@ Obsoletes: perl-Padre <= 0.400.0
 Provides:  perl-Padre = %{version}
 
 Suggests: perl(Padre::Plugin::Autoformat)
+Suggests: perl(Padre::Plugin::CSS)
 Suggests: perl(Padre::Plugin::Catalyst)
+Suggests: perl(Padre::Plugin::ClassSniff)
 Suggests: perl(Padre::Plugin::DataWalker)
 Suggests: perl(Padre::Plugin::Ecliptic)
+Suggests: perl(Padre::Plugin::Git)
+Suggests: perl(Padre::Plugin::HTML)
+Suggests: perl(Padre::Plugin::Kate)
 Suggests: perl(Padre::Plugin::Nopaste)
 Suggests: perl(Padre::Plugin::PAR)
+Suggests: perl(Padre::Plugin::Parrot)
 Suggests: perl(Padre::Plugin::Perl6)
 Suggests: perl(Padre::Plugin::PerlCritic)
 Suggests: perl(Padre::Plugin::PerlTidy)
+Suggests: perl(Padre::Plugin::SpellCheck)
 Suggests: perl(Padre::Plugin::ViewInBrowser)
 
 
