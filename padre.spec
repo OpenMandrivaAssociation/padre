@@ -19,6 +19,7 @@ BuildRequires: perl(Class::Adapter)
 BuildRequires: perl(Class::Unload)
 BuildRequires: perl(Class::XSAccessor::Array)
 BuildRequires: perl(Cwd)                       >= 3.270.100
+BuildRequires: perl(Debug::Client)
 BuildRequires: perl(Devel::Dumpvar)
 BuildRequires: perl(Devel::Refactor)
 BuildRequires: perl(Encode)                    >= 2.260.0
@@ -50,11 +51,13 @@ BuildRequires: perl(Parse::ErrorString::Perl)
 BuildRequires: perl(Parse::ExuberantCTags)
 BuildRequires: perl(Pod::Abstract)
 BuildRequires: perl(Pod::POM)
+BuildRequires: perl(Pod::Perldoc)              >= 3.150.0
 BuildRequires: perl(Pod::Simple)
 BuildRequires: perl(Pod::Simple::XHTML)
 BuildRequires: perl(PPI)
 BuildRequires: perl(PPIx::EditorTools)
 BuildRequires: perl(Probe::Perl)
+BuildRequires: perl(Template::Tiny)
 BuildRequires: perl(Test::Exception)
 BuildRequires: perl(Test::More)                >= 0.880.0
 BuildRequires: perl(Test::Most)
