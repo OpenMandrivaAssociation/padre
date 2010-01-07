@@ -1,6 +1,6 @@
 %define upstream_name    Padre
 %define appli_name       padre
-%define upstream_version 0.53
+%define upstream_version 0.54
 
 Name:       %{appli_name}
 Version:    %perl_convert_version %{upstream_version}
