@@ -4,7 +4,7 @@
 
 Name:       %{appli_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 1
+Release:    %mkrel 2
 
 License:    GPL+ or Artistic
 Group:      Development/Perl
@@ -129,6 +129,7 @@ Suggests: perl(Padre::Plugin::Perl6)
 Suggests: perl(Padre::Plugin::PerlCritic)
 Suggests: perl(Padre::Plugin::PerlTidy)
 Suggests: perl(Padre::Plugin::SpellCheck)
+Suggests: perl(Padre::Plugin::Swarm)
 Suggests: perl(Padre::Plugin::ViewInBrowser)
 
 
