@@ -1,10 +1,10 @@
 %define upstream_name    Padre
 %define appli_name       padre
-%define upstream_version 0.56
+%define upstream_version 0.57
 
 Name:       %{appli_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Release:    %mkrel 1
 
 License:    GPL+ or Artistic
 Group:      Development/Perl
