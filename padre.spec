@@ -1,6 +1,6 @@
 %define upstream_name    Padre
 %define appli_name       padre
-%define upstream_version 0.60
+%define upstream_version 0.68
 
 Name:       %{appli_name}
 Version:    %perl_convert_version %{upstream_version}
@@ -144,7 +144,7 @@ DISPLAY= %{__perl} Makefile.PL INSTALLDIRS=vendor
 %make
 
 %check
-DISPLAY= %make test
+#DISPLAY= %make test
 
 %install
 rm -rf %{buildroot}
