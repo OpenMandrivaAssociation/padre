@@ -1,17 +1,18 @@
 %define upstream_name    Padre
 %define appli_name       padre
-%define upstream_version 0.86
+%define upstream_version 0.96
 
 Name:       %{appli_name}
 Version:    %perl_convert_version %{upstream_version}
-Release:    %mkrel 2
+Release:    1
 
-License:    GPL+ or Artistic
+License:    GPLv1+ or Artistic
 Group:      Development/Perl
 Summary:    Perl Application Development and Refactoring Environment
 Url:        http://search.cpan.org/dist/%{upstream_name}
 Source0:    http://search.cpan.org/CPAN/authors/id/S/SZ/SZABGAB/%{upstream_name}-%{upstream_version}.tar.gz
 
+BuildRequires: perl-devel
 BuildRequires: perl(Alien::wxWidgets)          >= 0.460.0
 BuildRequires: perl(App::Ack)
 BuildRequires: perl(App::cpanminus) >= 0.992.3
@@ -109,45 +110,19 @@ BuildRequires: perl(threads)                   >= 1.710.0
 BuildRequires: perl(threads::shared)           >= 1.330.0
 
 BuildArch: noarch
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}
 
 Requires:      gettext
-Requires:      perl(Class::Adapter::Builder)
-Requires:      perl(Class::Accessor)
-Requires:      perl(Class::Unload)
-Requires:      perl(Class::XSAccessor::Array)
-Requires:      perl(DBD::SQLite)
-Requires:      perl(Devel::Dumpvar)
-Requires:      perl(Encode)
-Requires:      perl(File::Copy::Recursive)
-Requires:      perl(File::Find::Rule)
-Requires:      perl(File::HomeDir)
-Requires:      perl(File::Which)
-Requires:      perl(File::pushd)
-Requires:      perl(IPC::Cmd)
-Requires:      perl(IPC::Run3)
-Requires:      perl(Locale::Msgfmt) 
-Requires:      perl(Module::CoreList)
-Requires:      perl(Module::Refresh)
-Requires:      perl(Module::Starter)
-Requires:      perl(PAR)
-Requires:      perl(Parse::ExuberantCTags)
-Requires:      perl-PathTools
-Requires:      perl(Probe::Perl)
-Requires:      perl(Text::FindIndent)
-Requires:      perl(Thread::Queue)             >= 2.110.0
-Requires:      perl(Wx::Perl::ProcessStream)
-Requires:      perl(threads)
-Requires:      perl(threads::shared)
 
 Obsoletes: perl-Padre-Plugin-Encode <= 0.1.3
-Provides:  perl-Padre-Plugin-Encode = %{version}
+Provides:  perl-Padre-Plugin-Encode = %{EVRD}
 
 Obsoletes: perl-Wx-Perl-Dialog <= 0.04
-Provides:  perl-Wx-Perl-Dialog = %{version}
+Provides:  perl-Wx-Perl-Dialog = %{EVRD}
 
 Obsoletes: perl-Padre <= 0.400.0
-Provides:  perl-Padre = %{version}
+Provides:  perl-Padre = %{EVRD}
+
+Provides:  perl-Padre-Wx-Panel-FoundInFiles = %{EVRD}
 
 Suggests: perl(Padre::Plugin::Autoformat)
 Suggests: perl(Padre::Plugin::CSS)
@@ -174,6 +149,7 @@ Padre - Perl Application Development and Refactoring Environment
 
 %prep
 %setup -q -n %{upstream_name}-%{upstream_version}
+chmod a-x share/%{name}.desktop
 
 %build
 DISPLAY= %{__perl} Makefile.PL INSTALLDIRS=vendor
@@ -183,15 +159,28 @@ DISPLAY= %{__perl} Makefile.PL INSTALLDIRS=vendor
 #DISPLAY= %make test
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
-%clean
-rm -rf %buildroot
+%find_lang %{name} --all-name
 
-%files
+%files -f %{name}.lang
 %defattr(-,root,root)
 %doc Changes README
 %{_bindir}/padre
 %{_mandir}/man3/*
-%perl_vendorlib/*
+%{perl_vendorlib}/%{upstream_name}
+%{perl_vendorlib}/%{upstream_name}.pm
+%dir %{perl_vendorlib}/auto/share/dist/%{upstream_name}
+%dir %{perl_vendorlib}/auto/share/dist/%{upstream_name}/locale
+%{perl_vendorlib}/auto/share/dist/%{upstream_name}/doc
+%{perl_vendorlib}/auto/share/dist/%{upstream_name}/examples
+%{perl_vendorlib}/auto/share/dist/%{upstream_name}/icons
+%{perl_vendorlib}/auto/share/dist/%{upstream_name}/languages
+%{perl_vendorlib}/auto/share/dist/%{upstream_name}/padre.desktop
+%{perl_vendorlib}/auto/share/dist/%{upstream_name}/padre.desktop.README
+%{perl_vendorlib}/auto/share/dist/%{upstream_name}/padre-splash-ccnc.png
+%{perl_vendorlib}/auto/share/dist/%{upstream_name}/padre-splash.png
+%{perl_vendorlib}/auto/share/dist/%{upstream_name}/ppm
+%{perl_vendorlib}/auto/share/dist/%{upstream_name}/README.txt
+%{perl_vendorlib}/auto/share/dist/%{upstream_name}/templates
+%{perl_vendorlib}/auto/share/dist/%{upstream_name}/themes
