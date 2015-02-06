@@ -4,7 +4,7 @@
 
 Name:		%{appli_name}
 Version:	%perl_convert_version %{upstream_version}
-Release:	5
+Release:	6
 
 License:	GPLv1+ or Artistic
 Group:		Development/Perl
