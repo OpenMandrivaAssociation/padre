@@ -9,7 +9,7 @@ Release:	6
 License:	GPLv1+ or Artistic
 Group:		Development/Perl
 Summary:	Perl Application Development and Refactoring Environment
-Url:		http://search.cpan.org/dist/%{upstream_name}
+Url:		https://search.cpan.org/dist/%{upstream_name}
 Source0:	http://search.cpan.org/CPAN/authors/id/S/SZ/SZABGAB/%{upstream_name}-%{upstream_version}.tar.gz
 
 BuildRequires:	perl-devel
