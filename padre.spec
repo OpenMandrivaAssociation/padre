@@ -12,6 +12,7 @@ Summary:	Perl Application Development and Refactoring Environment
 Url:		https://search.cpan.org/dist/%{upstream_name}
 Source0:	http://search.cpan.org/CPAN/authors/id/S/SZ/SZABGAB/%{upstream_name}-%{upstream_version}.tar.gz
 
+BuildRequires:	make
 BuildRequires:	perl-devel
 BuildRequires:	perl(Alien::wxWidgets)          >= 0.460.0
 BuildRequires:	perl(App::Ack)
