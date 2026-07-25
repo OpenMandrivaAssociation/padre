@@ -1,16 +1,16 @@
 %define upstream_name    Padre
 %define appli_name       padre
-%define upstream_version 0.96
+%define upstream_version 1.02
 
 Name:		%{appli_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	6
+Version:	%{upstream_version}
+Release:	1
 
 License:	GPLv1+ or Artistic
 Group:		Development/Perl
 Summary:	Perl Application Development and Refactoring Environment
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://search.cpan.org/CPAN/authors/id/S/SZ/SZABGAB/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		http://padre.perlide.org
+Source0:	https://cpan.metacpan.org/authors/id/S/SZ/SZABGAB/Padre-%{upstream_version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
